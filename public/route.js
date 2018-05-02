@@ -28,6 +28,30 @@
             controllerAs: 'vm'
         })
 
+
+        .state('main.principal',{
+            url: '/principal',
+            templateUrl: './components/main/principal/principal.view.html',
+            data: {
+                pageTitle: 'Página principal | Royal Cars'
+            }
+        })
+
+        .state('main', {
+            url: '/main',
+            templateUrl: './components/main/main.view.html',
+            data: {
+                pageTitle: 'Página principal | Royal Cars'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                    return $ocLazyLoad.load('./components/main/main.controller.js')
+                }]
+            },
+            controller: 'mainController',
+            controllerAs: 'vm'
+        })
+
         .state('logIn', {
             url: '/login',
             templateUrl: './components/login/login.view.html',
@@ -43,20 +67,40 @@
             controllerAs: 'vm'
         })
 
-        .state('clients', {
-            url: '/clients',
-            templateUrl: './components/users/clients/clients.view.html',
+        //*Registro Clientes */
+
+        .state('registerClient', {
+            url: '/registerClient',
+            templateUrl: './components/users/clients/register/register-client.view.html',
             data: {
-                pageTitle: 'Registrate | Royal Cars'
+                pageTitle: 'Registro de usuarios | Royal Cars'
             },
             resolve: {
                 load: ['$ocLazyLoad', ($ocLazyLoad) => {
-                    return $ocLazyLoad.load('./components/users/clients/clients.controller.js')
+                    return $ocLazyLoad.load('./components/users/clients/register/register-client.controller.js')
                 }]
             },
-            controller: 'clientsController',
+            controller: 'registerClientController',
             controllerAs: 'vm'
         })
+
+        //**Registro de encargado */
+
+        .state('registerCharge', {
+            url: '/registerCharge',
+            templateUrl: './components/users/charge/register/register-charge.view.html',
+            data: {
+                pageTitle: 'Registro de encargados | Royal Cars'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                    return $ocLazyLoad.load('./components/users/charge/register/register-charge.controller.js')
+                }]
+            },
+            controller: 'registerChargeController',
+            controllerAs: 'vm'
+        })
+
 
         $urlRouterProvider.otherwise('/');
     }
