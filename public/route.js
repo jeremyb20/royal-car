@@ -43,6 +43,21 @@
             controllerAs: 'vm'
         })
 
+        .state('clients', {
+            url: '/clients',
+            templateUrl: './components/clients/clients.view.html',
+            data: {
+                pageTitle: 'Registrate | Royal Cars'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                    return $ocLazyLoad.load('./components/clients/clients.controller.js')
+                }]
+            },
+            controller: 'clientsController',
+            controllerAs: 'vm'
+        })
+
         $urlRouterProvider.otherwise('/');
     }
 })();
