@@ -28,15 +28,6 @@
             controllerAs: 'vm'
         })
 
-
-        .state('main.principal',{
-            url: '/principal',
-            templateUrl: './components/main/principal/principal.view.html',
-            data: {
-                pageTitle: 'Página principal | Royal Cars'
-            }
-        })
-
         .state('main', {
             url: '/main',
             templateUrl: './components/main/main.view.html',
@@ -50,6 +41,14 @@
             },
             controller: 'mainController',
             controllerAs: 'vm'
+        })
+
+        .state('main.principal',{
+            url: '/principal',
+            templateUrl: './components/main/principal/principal.view.html',
+            data: {
+                pageTitle: 'Página principal | Royal Cars'
+            }
         })
 
         .state('logIn', {
