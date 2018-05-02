@@ -2,3 +2,11 @@ package-lock.json
 
 node_modules
 
+public/lib
+
+public/sources/styles.min.css
+
+.env
+*.DS_Store
+
+
