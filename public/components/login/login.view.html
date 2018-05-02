@@ -1,0 +1,35 @@
+<main id="" class="row">
+  <section class="col-md-6">
+
+  </section>
+  <section class="col-md-6">
+      <form class="col-md-8 mx-auto" ng-submit="vm.login(vm.credentials)" name="formInicioSesion" novalidate autocomplete="off">
+
+          <h2 class="text-center">Ingrese sus datos para iniciar sesión</h2>
+          <p class="text-center text-muted "><strong><a ui-sref="landingPage">Arcana</a></strong> le ofrece la capacidad de puntear los hoteles registrados</p>
+
+          <div class="form-group">
+              <label for="txtEmail">Correo electrónico</label>
+              <input type="email" id="txtEmail" class="form-control" name="campoEmail" ng-model="vm.credentials.email" required>
+              <div ng-messages="formInicioSesion.campoEmail.$error">
+                  <div ng-message="required">
+                      <small class="form-text text-muted">Este campo es requerido</small>
+                  </div>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="txtPassword">Contraseña</label>
+              <input type="password" id="txtPassword" class="form-control" name="campoPassword" ng-model="vm.credentials.password" required>
+              <div ng-messages="formInicioSesion.campoPassword.$error">
+                  <div ng-message="required">
+                      <small class="form-text text-muted">Este campo es requerido</small>
+                  </div>
+              </div>
+          </div>
+
+          <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+          <button type="" href="#!/login" class="btn btn-danger">Volver</button>
+      </form>
+  </section>
+</main>
