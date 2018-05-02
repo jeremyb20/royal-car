@@ -45,13 +45,13 @@
 
         .state('clients', {
             url: '/clients',
-            templateUrl: './components/clients/clients.view.html',
+            templateUrl: './components/users/clients/clients.view.html',
             data: {
                 pageTitle: 'Registrate | Royal Cars'
             },
             resolve: {
                 load: ['$ocLazyLoad', ($ocLazyLoad) => {
-                    return $ocLazyLoad.load('./components/clients/clients.controller.js')
+                    return $ocLazyLoad.load('./components/users/clients/clients.controller.js')
                 }]
             },
             controller: 'clientsController',
