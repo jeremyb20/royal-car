@@ -7,7 +7,6 @@
 
     function registerClientController(Upload, imageUploadService, userService) {
         const vm = this;
-        let url='';
 
         vm.newUser = {};
 
@@ -20,8 +19,9 @@
             });
         }
 
-        vm.registerUser = (pnewUser, url,urlImage) => {
+        vm.registerUser = (pnewUser,urlImage) => {
             pnewUser.photo = urlImage;
+            pnewUser.rol = 3;
 
             let newUser = Object.assign(new User(), pnewUser);
 

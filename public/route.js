@@ -83,6 +83,21 @@
             controllerAs: 'vm'
         })
 
+        .state('main.profileClient', {
+            url: '/profileClient',
+            templateUrl: './components/users/clients/profile/clients-profile.view.html',
+            data: {
+                pageTitle: 'Perfil Usuario | Royal Cars'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                    return $ocLazyLoad.load('./components/users/clients/profile/clients-profile.controller.js')
+                }]
+            },
+            controller: 'clientProfileController',
+            controllerAs: 'vm'
+        })
+
         //**Registro de encargado */
 
         .state('registerCharge', {

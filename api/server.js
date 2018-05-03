@@ -34,12 +34,12 @@ app.use( (req, res, next) => {
   next();
 });
 
-const index = require('./index');
-      user = require('./components/user/user.route'),
-      car = require('./components/cars/cars.route');
+const index = require('./index'),
+      user = require('./components/user/user.route');
+      // car = require('./components/cars/cars.route');
 
 app.use('/api', user); 
-app.use('/api', car);
+// app.use('/api', car);
 app.use('/', index);
 
 
