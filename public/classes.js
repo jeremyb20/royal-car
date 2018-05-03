@@ -1,5 +1,5 @@
 class User {
-  constructor(pfirstname, psecondname, pfirstsurname, psecondsurname, pid, pemail, ppassword,prol,pbirthDate,pphone,pphoto) {
+  constructor(pfirstname, psecondname, pfirstsurname, psecondsurname, pid, pemail, ppassword, prol, pbirthDate, pphone, pphoto) {
     this.firstName = pfirstname;
     this.secondName = psecondname;
     this.firstSurname = pfirstsurname;
@@ -21,6 +21,9 @@ class User {
   getFirstName() {
     return this.firstName;
   }
+  getBirthDate() {
+    return this.birthDate;
+  }
 
   getEmail() {
     return this.email;
@@ -36,10 +39,11 @@ class User {
 
   getPhoto() {
     return this.photo;
+  
   }
   getRol() {
     return this.rol;
-}
+  }
 
   //- Sets es para editar datos en los metodos para sobreescribir datos ya dentro de la aplicacion 
 
@@ -67,7 +71,7 @@ class User {
 
 class Admin extends User {
   constructor(pfistname, psecondname, pfirstsurmane, psecondsurname, pid, pemail, ppassword, prol) {
-      //la herencia para istanciar los atributos del padre eso signica super
-      super(pfistname, psecondname, pfirstsurmane, psecondsurname, pid, pemail, ppassword, prol);
+    //la herencia para istanciar los atributos del padre eso signica super
+    super(pfistname, psecondname, pfirstsurmane, psecondsurname, pid, pemail, ppassword, prol);
   }
 }
