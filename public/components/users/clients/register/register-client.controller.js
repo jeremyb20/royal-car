@@ -1,38 +1,48 @@
 (() => {
-  angular
-      .module('royal-car')
-      .controller('registerClientController', registerClientController);
+    angular
+        .module('royal-car')
+        .controller('registerClientController', registerClientController);
 
-  registerClientController.$inject = ['userService'];
+    registerClientController.$inject = ['Upload', 'imageUploadService', 'userService'];
 
-  function registerClientController() {
-      const vm = this;
+    function registerClientController(Upload, imageUploadService, userService) {
+        const vm = this;
+        let url='';
 
-      // vm.newUser = {};
+        vm.newUser = {};
 
-      // vm.registerUser = (pnewUser) => {
-      //     pnewUser.rol = 2;
+        vm.cloudObj = imageUploadService.getConfiguration();
 
-      //     let newUser = Object.assign(new Client(), pnewUser);
+        vm.preRegisterUser = (pnewUser) => {
+            vm.cloudObj.data.file = pnewUser.photo[0];
+            Upload.upload(vm.cloudObj).success((data) => {
+                vm.registerUser(pnewUser, data.url);
+            });
+        }
 
-      //     // let success = userService.setUser(newUser);
+        vm.registerUser = (pnewUser, url,urlImage) => {
+            pnewUser.photo = urlImage;
 
-      //     if (success == true) {
-      //         swal({
-      //             title: "Registro exitoso",
-      //             text: "El usuario se ha registrado correctamente",
-      //             icon: "success",
-      //             button: "Aceptar"
-      //         });
-      //         vm.newUser = null;
-      //     } else {
-      //         swal({
-      //             title: "Registro fallido",
-      //             text: "Ha ocurrido un error, inténtelo nuevamente más tarde",
-      //             icon: "error",
-      //             button: "Aceptar"
-      //         });
-      //     }
-      // }
-  }
+            let newUser = Object.assign(new User(), pnewUser);
+
+            let success = userService.setUser(newUser);
+
+            if (success == true) {
+                swal({
+                    title: "Registro exitoso",
+                    text: "El usuario se ha registrado correctamente",
+                    icon: "success",
+                    button: "Aceptar"
+                });
+                vm.newUser = null;
+            } else {
+                swal({
+                    title: "Registro fallido",
+                    text: "Ha ocurrido un error, inténtelo nuevamente más tarde",
+                    icon: "error",
+                    button: "Aceptar"
+                });
+            }
+        }
+    }
 })();

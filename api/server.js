@@ -7,7 +7,7 @@ const express = require('express'),
       mongoose = require('mongoose');
 
 let db = mongoose.connection,
-    dburl = 'mongodb://localhost:27017',
+    dburl = 'mongodb://admin:admin123@ds113640.mlab.com:13640/royal-cars',
     port = 4000;
 
 let server = app.listen(port,_server());
@@ -35,8 +35,13 @@ app.use( (req, res, next) => {
 });
 
 const index = require('./index');
+      user = require('./components/user/user.route'),
+      car = require('./components/cars/cars.route');
 
+app.use('/api', user); 
+app.use('/api', car);
 app.use('/', index);
+
 
 module.exports = app;
 
