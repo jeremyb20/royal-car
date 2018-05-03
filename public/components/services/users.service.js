@@ -42,7 +42,7 @@
                   let newAdmin = Object.assign(new Admin(), obj);
                   userList.push(newAdmin);
               } else {
-                  let newClient = Object.assign(new Client(), obj);
+                  let newClient = Object.assign(new User(), obj);
                   userList.push(newClient);
               }
           });
