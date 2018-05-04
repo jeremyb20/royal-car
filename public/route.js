@@ -66,7 +66,7 @@
             controllerAs: 'vm'
         })
 
-        //*Registro Clientes */
+        //*INICIO Registro Clientes */
 
         .state('registerClient', {
             url: '/registerClient',
@@ -98,7 +98,24 @@
             controllerAs: 'vm'
         })
 
-        //**Registro de encargado */
+        .state('main.modifyClient', {
+            url: '/modifyClient',
+            templateUrl: './components/users/clients/modify/modify-client.view.html',
+            data: {
+                pageTitle: 'Actualizar Cliente | Royal Cars'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                    return $ocLazyLoad.load('./components/users/clients/modify/modify-client.controller.js')
+                }]
+            },
+            controller: 'modifyClientController',
+            controllerAs: 'vm'
+        })
+
+        //**FIN Registro cliente */
+
+        //**INICIORegistro de encargado */
 
         .state('registerCharge', {
             url: '/registerCharge',
