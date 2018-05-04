@@ -1,27 +1,101 @@
-<aside class="bg-black">
+<!-- <aside class="bg-black">
   <ul class="nav flex-column">
-    <li class="nav-item dropright">
-      <a class="nav-link text-white dropdown-toggle py-5 mt-4" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="d-inline">
-          <i class="fas fa-building"></i>
-        </div>
-        <p class="d-inline">Hoteles</p>
-      </a>
-
-      <div class="dropdown-menu">
-        <a class="dropdown-item" ui-sref="main.listarVehiculos">Visualizar vehiculos</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" ui-sref="main.registerHotel">Registrar Hoteles</a>
-      </div>
-    </li>
-    
     <li class="nav-item">
-      <a class="nav-link text-white py-5" ui-sref="main.profileClient" href="">
+      <a class="nav-link text-white py-4" ui-sref="main.profileClient" href="">
         <div class="d-inline">
           <i class="fas fa-user"></i>
         </div>
-        <p class="d-inline">Mi perfil</p>
+        <p class="d-inline mx-3">Mi perfil</p>
       </a>
     </li>
+    <li class="nav-item dropright">
+      <a class="nav-link text-white dropdown-toggle py-4 mt-3" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="d-inline">
+          <i class="fas fa-plus-circle"></i>
+        </div>
+        <p class="d-inline mx-3">Registrar</p>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" ui-sref="main.listarVehiculos">Registrar encargado</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" ui-sref="main.registerHotel">Registrar Vehiculos</a>
+      </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white py-4" ui-sref="main.profileClient" href="">
+          <div class="d-inline">
+            <i class="fas fa-car"></i>
+          </div>
+          <p class="d-inline mx-3">Vehiculos</p>
+        </a>
+      </li>
   </ul>
+</aside> -->
+<aside>
+<div class="nav-side-menu">
+    <div class="brand">
+        <img ng-src="{{vm.userInfo.getPhoto()}}"  class="rounded-circle d-inline img-responsive p-3" alt="User getPhoto" width="100">Bienvenido {{vm.userInfo.getFirstName()}}
+        
+    </div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <div class="menu-list">
+        <ul id="menu-content" class="menu-content collapse out">
+            <li>
+                <a ui-sref="main.principal">
+                    <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                </a>
+            </li>
+            <li data-toggle="collapse" data-target="#products" class="collapsed active">
+                <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elementos <span class="fas fa-angle-down"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="products">
+                <li class="active"><a href="#">CSS3 Animation</a></li>
+                <li><a href="#">General</a></li>
+                <li><a href="#">Buttons</a></li>
+                <li><a href="#">Tabs &amp; Accordions</a></li>
+                <li><a href="#">Typography</a></li>
+                <li><a href="#">FontAwesome</a></li>
+                <li><a href="#">Slider</a></li>
+                <li><a href="#">Panels</a></li>
+                <li><a href="#">Widgets</a></li>
+                <li><a href="#">Bootstrap Model</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#service" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> Servicios <span class="fas fa-angle-down"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="service">
+                <li>New Service 1</li>
+                <li>New Service 2</li>
+                <li>New Service 3</li>
+            </ul>
+
+
+            <li data-toggle="collapse" data-target="#new" class="collapsed">
+                <a href="#"><i class="fa fa-car fa-lg"></i> Nuevo <span class="fas fa-angle-down"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="new">
+                <li>New New 1</li>
+                <li>New New 2</li>
+                <li>New New 3</li>
+            </ul>
+            <li>
+                <a ui-sref="main.profileClient">
+                    <i class="fa fa-user fa-lg"></i> Perfil
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-users fa-lg"></i> Usuarios
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- <div class="container" id="main">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>This is suppose to be in the main content</h4>
+        </div>
+    </div>
+</div> -->
 </aside>

@@ -1,66 +1,73 @@
 <section>
-  <div class="container">
-      <div class="row">
-          <div class="panel panel-info">
-              <div class="panel-heading">
-                  <h3 class="panel-title">Perfil de {{vm.userInfo.getFirstName()}}</h3>
-              </div>
-              <div class="panel-body">
-                  <div class="row">
+    <div>
+        <div class="bg-defaul pt-5">
+            <img height="200" class="rounded-circle mx-auto d-block img-profile-bg " width="200" ng-src="{{vm.userInfo.getPhoto()}}">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Perfil de {{vm.userInfo.getFirstName()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
 
-                      <div class="col-md-12 col-lg-12 ">
-                          <table class="table table-user-information">
-                              <tbody>
-                                  <tr>
-                                      <td>Nombre</td>
-                                      <td>{{vm.userInfo.getFullName()}}</td>
-                                  </tr>
-                                  <tr ng-hide="vm.userInfo.getRol() == 1">
-                                      <td>Fecha de nacimiento</td>
-                                      <td>{{vm.userInfo.getBirthDate() | date:'dd MMM yyyy'}}</td>
-                                  </tr>
+                        <div class="col-md-12 col-lg-12 ">
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>Nombre</td>
+                                        <td>{{vm.userInfo.getFullName()}}</td>
+                                    </tr>
+                                    <tr ng-hide="vm.userInfo.getRol() == 1">
+                                        <td>Fecha de nacimiento</td>
+                                        <td>{{vm.userInfo.getBirthDate() | date:'dd MMM yyyy'}}</td>
+                                    </tr>
 
-                                  <tr>
-                                      <tr>
-                                          <td>Correo electrónico</td>
-                                          <td>
-                                              <a href="mailto:{{vm.userInfo.getCorreo()}}">{{vm.userInfo.getEmail()}}</a>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>Número de cédula</td>
-                                          <td>{{vm.userInfo.getId()}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>Foto:</td>
-                                        <td><img  height="100" width="100" ng-src="{{vm.userInfo.getPhoto()}}"></td>
-                                      </tr>
+                                    <tr>
+                                        <tr>
+                                            <td>Correo electrónico</td>
+                                            <td>
+                                                <a href="mailto:{{vm.userInfo.getCorreo()}}">{{vm.userInfo.getEmail()}}</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Número de cédula</td>
+                                            <td>{{vm.userInfo.getId()}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Foto:</td>
+                                            <td>
+                                                <img height="100" width="100" ng-src="{{vm.userInfo.getPhoto()}}">
+                                            </td>
+                                        </tr>
 
 
-                                  </tr>
+                                    </tr>
 
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-              <!-- <div class="container">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="container">
                       <div class="file-loading">
                               <input id="input-21" type="file" accept="image/*">
                           </div>
               </div> -->
-              <div class="panel-footer">
+                <div class="panel-footer">
 
 
-                  <a href="" ui-sref="main.modifyUser" class="btn btn-warning">
-                      <i class="fas fa-edit"></i>
-                  </a>
-                  <a href="" class="btn btn-danger">
-                      <i class="fas fa-ban"></i>
-                  </a>
+                    <a href="" ui-sref="main.modifyUser" class="btn btn-warning">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="" class="btn btn-danger">
+                        <i class="fas fa-ban"></i>
+                    </a>
 
-              </div>
-          </div>
-      </div>
-  </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
