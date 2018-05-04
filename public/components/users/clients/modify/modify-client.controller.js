@@ -3,9 +3,9 @@
       .module('royal-car')
       .controller('modifyClientController', modifyClientController);
 
-  modifyClientController.$inject = ['userService', 'loginService'];
+  modifyClientController.$inject = ['Upload', 'userService', 'imageUploadService', 'loginService'];
 
-  function modifyClientController(userService, loginService) {
+  function modifyClientController(Upload, userService, imageUploadService, loginService) {
       const vm = this;
 
       const userAuth = loginService.getAuthUser();
@@ -15,8 +15,21 @@
       vm.modifyUser = Object.assign(userAuth, vm.modifyUser);
       vm.modifyUser.birthDate = new Date(userAuth.birthDate);
 
-      vm.modificationUser = (pmodifyUser) => {
-          
+      
+      vm.cloudObj = imageUploadService.getConfiguration();
+
+      vm.preModificationUser = (pmodifyUser) => {
+          vm.cloudObj.data.file = pmodifyUser.photo[0];
+          Upload.upload(vm.cloudObj).success((data) => {
+              vm.modificationUser(pmodifyUser, data.url);
+          });
+      }
+
+
+      vm.modificationUser = (pmodifyUser,urlImage) => {   
+
+        pmodifyUser.photo = urlImage;
+        
           if(userAuth.getRol() == 1){
               let modifyUser = Object.assign(new Admin(), pmodifyUser);
           }else{
