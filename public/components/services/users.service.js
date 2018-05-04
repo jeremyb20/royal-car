@@ -9,7 +9,8 @@
   function userService($http, $log, dataStorageFactory) {
       const publicUserAPI = {
           setUser : _setUser,
-          getUsers : _getUsers
+          getUsers : _getUsers,
+          updateUsers : _updateUsers
       }
       return publicUserAPI;
 
@@ -48,6 +49,13 @@
           });
 
           return userList;
+      }
+
+      function _updateUsers(pmodifyUser){
+        let success = dataStorageFactory.updateUserData(pmodifyUser);
+        
+
+        return success;
       }
   }
 })();

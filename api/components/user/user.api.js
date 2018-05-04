@@ -19,9 +19,9 @@ module.exports.listUser = (req, res) => {
 };
 
 module.exports.updateUser = (req, res) => {
-    UserModel.findByIdAndUpdate(req.body._id, { $set: req.body }, (err, user) => {
+    UserModel.findOneAndUpdate(req.body.id, { $set: req.body }, (err, user) => {
         if (err) {
-            res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+            res.json({ success: false, msg: 'No se ha actualizado. ' + err });
 
         } else {
             res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });

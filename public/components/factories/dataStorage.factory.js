@@ -79,7 +79,41 @@
           return userList;
       }
 
-      function _updateUserData(userData) {}
+      function _updateUserData(userData) {
+        let response;
+
+        let request = $.ajax({
+            url: 'http://localhost:4000/api/update_users',
+            type: 'put',
+            contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            data: {
+                'firstName': userData.firstName,
+                'secondName': userData.secondName,
+                'firstSurname': userData.firstSurname,
+                'secondSurname': userData.secondSurname,
+                'id': userData.id,
+                'email': userData.email,
+                'password': userData.password,
+                'rol': userData.rol,
+                'birthDate': userData.birthDate,
+                'phone': userData.phone,
+                'photo': userData.photo
+            }
+        });
+
+        request.done((res) => {
+            response = res.success;
+            console.log(res.msj);
+        });
+        request.fail((error) => {
+            response = error;
+            console.log('Ocurrió un error');
+        });
+
+        return response;
+      }
 
       // function _setHotelData(hotelData) {
       //     let response;

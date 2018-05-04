@@ -59,10 +59,22 @@ class User {
     this.firstSurname = pnewfirstsurname;
   }
 
-  setSecondName(pnewsecondname) {
-    this.secondName = pnewsecondname;
+  setSecondSurname(pnewsecondsurname) {
+    this.secondSurname = pnewsecondsurname;
   }
 
+  setBirthDate(pnewBirthDate){
+    this.birthDate = pnewBirthDate;
+  }
+
+  setEmail(pnewEmail) {
+    this.email = pnewEmail;
+  }
+
+  setPassword(pnewPassword) {
+    this.password = pnewPassword;
+  }
+  
   setPhoto(pnewphoto) {
     this.photo = pnewphoto;
   }
