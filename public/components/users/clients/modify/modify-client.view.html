@@ -1,4 +1,5 @@
 <main id="registroUsuarios" class="mt-8">
+    <!-- ng-hide="vm.userLogged.getRol() == 1"  esto es para esconder si el rol es 1 o lo que sea -->
   <h1>Modifique sus datos</h1>
   <div>
     <div class="col-md-12 my-4">
@@ -68,7 +69,7 @@
             <input type="text" id="txtApellido2" class="form-control" name="campoSegundoApellido" ng-model="vm.modifyUser.secondSurname">
           </div>
 
-          <div class="form-group col-md-4" ng-hide="vm.userLogged.getRol() == 1">
+          <div class="form-group col-md-4">
             <label for="txtphone">Teléfono</label>
             <input type="text" id="txtphone" class="form-control" name="campoTelefono" ng-model="vm.modifyUser.phone">
             <div ng-messages="formRegistroUsuarios.campoTelefono.$error" role="alert">
@@ -84,7 +85,7 @@
         <div class="row">
 
           <div class="col-md-4">
-            <div class="form-group" ng-hide="vm.userLogged.getRol() == 1">
+            <div class="form-group">
               <label for="dtFechaNacimiento">Fecha nacimiento</label>
               <input type="date" id="dtFechaNacimiento" class="form-control" name="campoFecha" ng-model="vm.modifyUser.birthDate">
             </div>

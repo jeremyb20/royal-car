@@ -11,6 +11,7 @@
           setUser : _setUser,
           getUsers : _getUsers,
           updateUsers : _updateUsers
+        
       }
       return publicUserAPI;
 
@@ -57,5 +58,8 @@
 
         return success;
       }
+
+
+   
   }
 })();

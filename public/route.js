@@ -113,11 +113,26 @@
             controllerAs: 'vm'
         })
 
+        .state('main.listClient', {
+            url: '/listClient',
+            templateUrl: './components/users/clients/list/list-client.view.html',
+            data: {
+                pageTitle: 'Lista Cliente | Royal Cars'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                    return $ocLazyLoad.load('./components/users/clients/list/list-client.controller.js')
+                }]
+            },
+            controller: 'listClientController',
+            controllerAs: 'vm'
+        })
+
         //**FIN Registro cliente */
 
         //**INICIORegistro de encargado */
 
-        .state('registerCharge', {
+        .state('main.registerCharge', {
             url: '/registerCharge',
             templateUrl: './components/users/charge/register/register-charge.view.html',
             data: {
@@ -129,6 +144,36 @@
                 }]
             },
             controller: 'registerChargeController',
+            controllerAs: 'vm'
+        })
+
+        .state('main.profileCharge', {
+            url: '/profileCharge',
+            templateUrl: './components/users/charge/profile/profile-charge.view.html',
+            data: {
+                pageTitle: 'Perfil Encargado | Royal Cars'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                    return $ocLazyLoad.load('./components/users/charge/profile/profile-charge.controller.js')
+                }]
+            },
+            controller: 'chargeProfileController',
+            controllerAs: 'vm'
+        })
+
+        .state('main.listCharge', {
+            url: '/listCharge',
+            templateUrl: './components/users/charge/list/list-charge.view.html',
+            data: {
+                pageTitle: 'Lista Encargados | Royal Cars'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                    return $ocLazyLoad.load('./components/users/charge/list/list-charge.controller.js')
+                }]
+            },
+            controller: 'listChargeController',
             controllerAs: 'vm'
         })
 

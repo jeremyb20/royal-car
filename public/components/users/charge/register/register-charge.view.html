@@ -1,0 +1,140 @@
+<main id="registroUsuarios" class="container-fluid">
+  <div class="row">
+    
+    <section class="col-md-7">
+      <form ng-submit="vm.preRegisterCharge(vm.newUser)" name="formRegistroEncargado" novalidate autocomplete="off">
+
+        <div class="form-group row">
+          <h1 class="text-center mx-auto">Registrar Encargado</h1>
+          <div class="col-md-6">
+            <label for="txtCedula">Cédula</label>
+            <input type="text" id="txtCedula" class="form-control" name="campoCedula" ng-model="vm.newUser.id" pattern="[0-9]+" maxlength="9"
+              minlength="9" required>
+            <div ng-messages="formRegistroEncargado.campoCedula.$error" role="alert">
+              <div ng-message="required">
+                <small class="form-text text-muted">Este campo es requerido</small>
+              </div>
+              <div ng-message="maxlength">
+                <small class="form-text text-muted">Formato incorrecto</small>
+              </div>
+              <div ng-message="minlength">
+                <small class="form-text text-muted">Formato incorrecto</small>
+              </div>
+              <div ng-message="pattern">
+                <small class="form-text text-muted">Formato incorrecto, ingrese únicamente números</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="txtNombre1">Primer nombre</label>
+            <input type="text" id="txtNombre1" class="form-control" name="campoNombre" ng-model="vm.newUser.firstName" pattern="[ñáéíóúA-Za-z ]+"
+              required>
+            <div ng-messages="formRegistroEncargado.campoNombre.$error" role="alert">
+              <div ng-message="required">
+                <small class="form-text text-muted">Este campo es requerido</small>
+              </div>
+              <div ng-message="pattern">
+                <small class="form-text text-muted">Formato incorrecto</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="txtNombre2">Segundo nombre</label>
+            <input type="text" id="txtNombre2" class="form-control" name="campoSegundoNombre" ng-model="vm.newUser.secondName" pattern="[ñáéíóúA-Za-z ]+">
+            <div ng-messages="formRegistroEncargado.campoNombre.$error" role="alert">
+              <div ng-message="pattern">
+                <small class="form-text text-muted">Formato incorrecto</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="txtApellido1">Primer apellido</label>
+            <input type="text" id="txtApellido1" class="form-control" name="campoPrimerApellido" ng-model="vm.newUser.firstSurname" required>
+            <div ng-messages="formRegistroEncargado.campoPrimerApellido.$error" role="alert">
+              <div ng-message="required">
+                <small class="form-text text-muted">Este campo es requerido</small>
+              </div>
+              <div ng-message="email">This field must be a valid email address.</div>
+              <div ng-message="maxlength">This field can be at most 15 characters long.</div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="txtApellido2">Segundo apellido</label>
+            <input type="text" id="txtApellido2" class="form-control" name="campoSegundoApellido" ng-model="vm.newUser.secondSurname">
+          </div>
+          <div class="col-md-6">
+            <label for="txtphone">Teléfono</label>
+            <input type="text" id="txtphone" class="form-control" name="campoTelefono" ng-model="vm.newUser.phone" required>
+            <div ng-messages="formRegistroEncargado.campoTelefono.$error" role="alert">
+              <div ng-message="required">
+                <small class="form-text text-muted">Este campo es requerido</small>
+              </div>
+              <div ng-message="email">This field must be a valid email address.</div>
+              <div ng-message="maxlength">This field can be at most 15 characters long.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="dtFechaNacimiento">Fecha nacimiento</label>
+            <input type="date" id="dtFechaNacimiento" class="form-control" name="campoFecha" ng-model="vm.newUser.birthDate" required>
+          </div>
+          <div class="col-md-6">
+            <label for="txtEmail">Correo electrónico</label>
+            <input type="email" id="txtEmail" class="form-control" name="campoCorreo" ng-model="vm.newUser.email" required>
+            <div ng-messages="formRegistroEncargado.campoCorreo.$error" role="alert">
+              <div ng-message="required">
+                <small class="form-text text-muted">Este campo es requerido</small>
+              </div>
+              <div ng-message="email">
+                <small class="form-text text-muted">EL formato del correo electrónico es incorrecto</small>
+              </div>
+              <div ng-message="maxlength">This field can be at most 15 characters long.</div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="txtContrasenna">Contraseña</label>
+            <input type="password" id="txtContrasenna" class="form-control" name="campoContrasenna" required>
+          </div>
+
+          <div class="col-md-6">
+            <label for="txtConfirmContrasenna">Confirmar contraseña</label>
+            <input type="password" id="txtConfirmContrasenna" class="form-control" name="campoConfirmContrasenna" ng-model="vm.newUser.password"
+              required>
+          </div>
+        </div>
+        <div class="row">
+
+            <div class="form-group col-md-6">
+                <label for="filePhoto">Fotografía del usuario</label>
+                <input type="file" class="form-control-file" id="filePhoto" files-input ng-model="vm.newUser.photo">
+              </div>
+
+          <div class="col-md-6">
+              <button type="submit" class="btn btn-success mr-2">Registrar</button>
+              
+          </div>
+
+        </div>
+
+
+      </form>
+    </section>
+  </div>
+</main>
