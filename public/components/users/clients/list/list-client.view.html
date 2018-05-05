@@ -1,0 +1,25 @@
+<section>
+  <div class="container"> 
+    <h1>Lista de clientes en el sistema</h1>
+    <table class="table table-user-information">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th> 
+            <th>Segundo nombre</th>
+            <th>Primer Apellido</th>
+            <th>Segundo Apellido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="cliente in vm.listaCliente | filter:{rol:'3'}:true track by $index ">
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.firstName}}</td>
+            <td>{{cliente.secondName}}</td>
+            <td>{{cliente.firstSurname}}</td>
+            <td>{{cliente.secondSurname}}</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</section>
