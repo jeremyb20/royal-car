@@ -1,0 +1,25 @@
+<section>
+    <div class="container"> 
+      <h1>Lista de encargado en el sistema</h1>
+      <table class="table table-user-information">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th> 
+              <th>Segundo nombre</th>
+              <th>Primer Apellido</th>
+              <th>Segundo Apellido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="charge in vm.listCharge | filter:{rol:'2'}:true track by $index ">
+              <td>{{charge.id}}</td>
+              <td>{{charge.firstName}}</td>
+              <td>{{charge.secondName}}</td>
+              <td>{{charge.firstSurname}}</td>
+              <td>{{charge.secondSurname}}</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  </section>

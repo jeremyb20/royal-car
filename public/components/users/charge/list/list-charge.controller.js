@@ -2,19 +2,13 @@
   'use strict';
   angular
       .module('royal-car')
-      .controller('chargeProfileController', chargeProfileController);
+      .controller('listChargeController', listChargeController);
 
-  chargeProfileController.$inject = ['loginService'];
+  listChargeController.$inject = ['userService'];
 
-  function chargeProfileController(loginService) {
-      // const vm = this;
+  function listChargeController(userService) {
+    let vm = this;
 
-      // const userAuth = loginService.getAuthUser();
-
-      // if (userAuth == undefined) {
-      //     $state.go('logIn');
-      // } 
-      
-      // vm.userInfo = userAuth;
+    vm.listCharge =  userService.getUsers();
   }
 })();
