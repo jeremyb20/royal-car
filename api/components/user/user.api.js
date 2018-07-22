@@ -1,4 +1,6 @@
 const UserModel = require('./user.model');
+      bcrypt = require('bcrypt');
+
 
 module.exports.registerUser = (req, res) => {
     var newUser = Object.assign(new UserModel(), req.body);

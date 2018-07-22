@@ -177,6 +177,41 @@
             controllerAs: 'vm'
         })
 
+        //**Fin Registro encargados */
+
+
+        //**Inicio Registro de vehiculos */
+        .state('main.registerCar', {
+            url: '/registerCar',
+            templateUrl: './components/cars/register/register-car.view.html',
+            data: {
+                pageTitle: 'Registrar Vehiculo | Royal Cars'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                    return $ocLazyLoad.load('./components/cars/register/register-car.controller.js')
+                }]
+            },
+            controller: 'registerCarController',
+            controllerAs: 'vm'
+        })
+
+        .state('main.listCar', {
+            url: '/listCar',
+            templateUrl: './components/cars/list/list.view.html',
+            data: {
+                pageTitle: 'Lista Vehiculos | Royal Cars'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                    return $ocLazyLoad.load('./components/cars/list/list.controller.js')
+                }]
+            },
+            controller: 'listCarController',
+            controllerAs: 'vm'
+        })
+        //**Fin Registro de vehiculo */
+
 
         $urlRouterProvider.otherwise('/');
     }

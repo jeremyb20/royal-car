@@ -88,4 +88,45 @@ class Admin extends User {
   }
 }
 
+class Car{
+  constructor(pmarca,pmodelo, pmatricula,pphoto,pcaracteristicas){
+    this.marca = pmarca;
+    this.modelo = pmodelo;
+    this.matricula = pmatricula;
+    this.photo = pphoto;
+    this.caracteristicas = pcaracteristicas;
+  }
+
+  agregarReparaciones(pnuevaReparacion){
+    this.reparaciones.push(pnuevaReparacion);
+  }
+
+  getReparaciones(){
+    return this.reparaciones;
+  }
+
+  getmatricula(){
+    return this.matricula;
+  }
+
+  getInfoVehiculo(){
+    return `${this.marca} ${this.modelo}`;
+  }
+
+  getPhoto() {
+    return this.photo;
+  }
+
+  getCaracteristicas() {
+    return this.caracteristicas;
+  }
+}
+
+class Reparaciones{
+  constructor(pcosto, pdescripcion){
+    this.costo = pcosto;
+    this.descripcion = pdescripcion;
+  }
+}
+
 

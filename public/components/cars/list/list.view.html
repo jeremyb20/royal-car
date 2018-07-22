@@ -1,0 +1,25 @@
+<section>
+  <div class="container"> 
+    <h1>Lista de vehiculos en el sistema</h1>
+    <table class="table table-user-information">
+        <thead>
+          <tr>
+            <th>Marca</th>
+            <th>Modelo</th> 
+            <th>Matricula</th>
+            <th>Caracteristicas</th>
+            <th>Foto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="car in vm.listCar ">
+            <td>{{car.marca}}</td>
+            <td>{{car.modelo}}</td>
+            <td>{{car.matricula}}</td>
+            <td>{{car.caracteristicas}}</td>
+            <td><img height="100" class="rounded-circle mx-auto d-block img-profile-bg " width="130" ng-src="{{car.photo}}"></td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</section>

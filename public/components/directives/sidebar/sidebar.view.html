@@ -84,17 +84,18 @@
             </li>
             <ul class="sub-menu collapse" id="new">
                 <li><i class="fas fa-user-plus mr-2"></i> <a ui-sref="main.registerCharge"> Registar encargado</a> </li>
-                <li><i class="fas fa-car mr-2"></i>   Registrar vehiculo</li>
-                <li><i class="fas fa-building mr-2"></i>   Registar Hotles</li>
+                <li><i class="fas fa-car mr-2"></i>   <a ui-sref="main.registerCar">Registrar vehiculo</a></li>
+                <li><i class="fas fa-building mr-2"></i>   Registar Hoteles</li>
             </ul>
 
 
             <li data-toggle="collapse" data-target="#list" class="collapsed">
-                    <a><i class="fas fa-user-secret mr-3"></i>   Usuarios <span class="fas fa-angle-down"></span></a>
+                    <a><i class="fa fa-globe fa-lg mr-2"></i>   Sistema <span class="fas fa-angle-down"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="list">
                     <li><i class="fas fa-user-plus mr-2"></i> <a ui-sref="main.listCharge">Lista de encargados</a> </li>
                     <li><i class="fas fa-user-plus mr-2"></i> <a ui-sref="main.listClient">Lista de usuarios</a>  </li>
+                    <li><i class="fas fa-car mr-2"></i>   <a ui-sref="main.listCar">Lista vehiculos</a></li>
                 </ul>
         </ul>
     </div>

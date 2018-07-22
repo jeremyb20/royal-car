@@ -1,0 +1,72 @@
+<div class="col-8 my-3">
+
+  <form ng-submit="vm.preRegisterCar(vm.newCar)" name="formRegistroAdmin" novalidate autocomplete="off">
+    <h1 class="mx-auto">Registrar Vehiculo</h1>
+    <div class="form-group row">
+      <div class="col-md-6">
+        <label for="txtNombre1">Marca del vehiculo</label>
+        <input type="text" id="txtNombre1" class="form-control" name="campoMarca" ng-model="vm.newCar.marca" pattern="[ñáéíóúA-Za-z ]+"
+          required>
+        <div ng-messages="formRegistroAdmin.campoMarca.$error" role="alert">
+          <div ng-message="required">
+            <small class="form-text text-muted">Este campo es requerido</small>
+          </div>
+          <div ng-message="pattern">
+            <small class="form-text text-muted">Formato incorrecto</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="txtModelo">Modelo del Vehiculo</label>
+        <input type="text" id="txtModelo" class="form-control" name="campoModelo" ng-model="vm.newCar.modelo" pattern="[ñáéíóúA-Za-z-0-9]+"
+          required>
+        <div ng-messages="formRegistroAdmin.campoModelo.$error" role="alert">
+          <div ng-message="required">
+            <small class="form-text text-muted">Este campo es requerido</small>
+          </div>
+          <div ng-message="pattern">
+            <small class="form-text text-muted">Formato incorrecto</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-6">
+        <label for="txtMatricula">Matricula del Vehiculo</label>
+        <input type="text" id="txtMatricula" class="form-control" name="campoMatricula" ng-model="vm.newCar.matricula"
+          maxlength="6" minlength="3" required>
+        <div ng-messages="formRegistroAdmin.campoMatricula.$error" role="alert">
+          <div ng-message="required">
+            <small class="form-text text-muted">Este campo es requerido</small>
+          </div>
+          <div ng-message="minlength">
+            <small class="form-text text-muted">Minimo 3 caracteres</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">  
+        <label for="filePhoto">Fotografía del vehiculo</label>
+        <input type="file" placeholder="hola" class="form-control-file" id="filePhoto" files-input ng-model="vm.newCar.photo">
+
+        
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-6">
+          <label for="txtMatricula">Caracteristicas del vehiculo</label>
+          <textarea type="text" style="min-height: 150px; max-height:150px ;" id="txtMatricula" class="form-control" name="campoMatricula"
+            ng-model="vm.newCar.caracteristicas" maxlength="350" required></textarea>
+          <div ng-messages="formRegistroAdmin.campoMatricula.$error" role="alert">
+            <div ng-message="required">
+              <small class="form-text text-muted">Este campo es requerido</small>
+            </div>
+            
+          </div>
+      </div> 
+    </div>
+    <button type="submit" class="btn btn-success">Registrar vehiculo</button> 
+  </form>
+
+</div>

@@ -6,6 +6,17 @@ const express = require('express'),
       morgan = require('morgan'),
       mongoose = require('mongoose');
 
+   
+
+// var serviceAccount = require('royal-car-80146b86134a.json');
+
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: 'https://royal-car-3673e.firebaseio.com'
+// });
+
+
+
 let db = mongoose.connection,
     dburl = 'mongodb://admin:admin123@ds113640.mlab.com:13640/royal-cars',
     port = 4000;
@@ -34,12 +45,13 @@ app.use( (req, res, next) => {
   next();
 });
 
+
 const index = require('./index'),
-      user = require('./components/user/user.route');
-      // car = require('./components/cars/cars.route');
+      user = require('./components/user/user.route'),
+      car = require('./components/car/car.route');
 
 app.use('/api', user); 
-// app.use('/api', car);
+app.use('/api', car);
 app.use('/', index);
 
 

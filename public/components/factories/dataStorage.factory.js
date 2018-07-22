@@ -14,6 +14,9 @@
           // getHotelData: _getHotelData,
           // updateHotelData: _updateHotelData,
           // Session functions
+          setCarData: _setCarData,
+          getCarData: _getCarData,
+          updateCarData: _updateCarData,
           setSession: _setSession,
           closeSession: _closeSession,
           getSession: _getSession
@@ -114,6 +117,93 @@
 
         return response;
       }
+
+
+
+
+      function _setCarData(carData){
+        let response;
+
+        let request = $.ajax({
+            url: 'http://localhost:4000/api/save_car',
+            type: 'post',
+            contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            data: {
+                'marca': carData.marca,
+                'modelo': carData.modelo,
+                'matricula': carData.matricula,
+                'photo': carData.photo,
+                'caracteristicas': carData.caracteristicas
+            }
+        });
+
+        request.done((res) => {
+            response = res.success;
+            console.log(res.msj);
+        });
+        request.fail((error) => {
+            response = error;
+            console.log('Ocurrió un error');
+        });
+
+        return response;
+    }
+
+    function _getCarData(){
+        let carList = [];
+
+        let request = $.ajax({
+            url: 'http://localhost:4000/api/get_all_cars',
+            type: 'get',
+            contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            data: {}
+        });
+
+        request.done((carListDB) => {
+            carList = carListDB;
+        });
+        request.fail(() => {
+            carList = [];
+            console.log('Ocurrió un error');
+        });
+
+        return carList;
+    }
+
+    function _updateCarData(carData) {
+      let response;
+
+      let request = $.ajax({
+          url: 'http://localhost:4000/api/update_cars',
+          type: 'put',
+          contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+          dataType: 'json',
+          async: false,
+          data: {
+            'marca': carData.marca,
+            'modelo': carData.modelo,
+            'matricula': carData.matricula,
+            'photo': carData.photo,
+            'caracteristicas': carData.caracteristicas
+          }
+      });
+
+      request.done((res) => {
+          response = res.success;
+          console.log(res.msj);
+      });
+      request.fail((error) => {
+          response = error;
+          console.log('Ocurrió un error');
+      });
+
+      return response;
+    }
+
 
       // function _setHotelData(hotelData) {
       //     let response;
