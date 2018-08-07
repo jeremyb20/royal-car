@@ -13,13 +13,22 @@
         vm.cloudObj = imageUploadService.getConfiguration();
 
         vm.preRegisterUser = (pnewUser) => {
-            vm.cloudObj.data.file = pnewUser.photo[0];
-            Upload.upload(vm.cloudObj).success((data) => {
-                vm.registerUser(pnewUser, data.url);
-            });
+            if (pnewUser.photo[0].size <= 87053) {
+                swal({
+                    title: "Imagen demasiado pesada",
+                    text: "La imagen es muy pesada",
+                    icon: "error",
+                    button: "Aceptar"
+                });
+            } else {
+                vm.cloudObj.data.file = pnewUser.photo[0];
+                Upload.upload(vm.cloudObj).success((data) => {
+                    vm.registerUser(pnewUser, data.url);
+                });
+            }
         }
 
-        vm.registerUser = (pnewUser,urlImage) => {
+        vm.registerUser = (pnewUser, urlImage) => {
             pnewUser.photo = urlImage;
             pnewUser.rol = 3;
 
